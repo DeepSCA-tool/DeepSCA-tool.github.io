@@ -1,0 +1,67 @@
+---
+layout: page
+---
+
+<div class="post-content" style="text-align: justify; font-family: Roboto;">
+  <u>B</u>inary <u>S</u>oftware <u>C</u>omposition <u>A</u>nalysis (<b>BSCA</b>) is a technique for identifying the versions of third-party libraries (TPLs)
+  used in compiled binaries, thereby tracing the dependencies and vulnerabilities of software components without access to
+  their source code. However, existing BSCA techniques struggle with <b>cross-language invoked C/C++ binaries in polyglot projects</b>
+  due to two key challenges: (1) interference from heterogeneous <i>Foreign Function Interface (FFI) bindings</i> that obscure 
+  distinctive TPL features and generate false positives during matching processes, and (2) the inherent complexity of composite
+  binaries (<i>fused binaries</i>), particularly prevalent in polyglot development where multiple TPLs are frequently compiled into 
+  single executable units, resulting in blurred boundaries between libraries and substantially compromising version identification precision.<br>
+
+  &emsp;We propose <b><span style="font-variant: small-caps;">DeeperBin</span>, a BSCA technique that addresses these challenges through a high-quality, 
+  large-scale feature database with four key advantages: </b>
+  <ul style="list-style-type: square; margin-bottom: 0.5em;">
+    <li><b>High scalability</b> that is capable of analyzing 74,647 C/C++ TPL versions.</li>
+    <li><b>Efficient noise filtering</b> to remove FFI bindings and common functions.</li>
+    <li><b>Automated extraction of version string regexes</b> for 31,855 TPL versions.</li>
+    <li><b>Generation of distinctive version features</b> using the <i>Minimum Description Length</i> (MDL) principle.</li>
+  </ul>
+
+  &emsp;Evaluated on 418 cross-language binaries, <span style="font-variant: small-caps;">DeeperBin</span> achieves 81.2% precision and 84.6% recall 
+  for TPL detection, outperforming state-of-the-art techniques by 14.1% and 23.2%, respectively. For version identification, it achieves 
+  70.3% precision, a 12.6% improvement over state-of-the-art techniques. Ablation studies confirm the usefulness of FFI filtering
+  and MDL-based features, boosting precision and recall by 17.1% and 18.8%. <span style="font-variant: small-caps;">DeeperBin</span> also maintains 
+  competitive efficiency, processing binaries in 364.3 seconds while supporting the largest feature database.
+
+</div>
+<hr>
+<div class="post-content" style="margin-top: 1em;">
+  <div class="logo">
+    <img src="/assets/img/tooldownload.svg" alt="avatar" height="30" width="30"">
+    <span>
+      <a href="https://github.com/DeeperBin/DeeperBin.github.io/tree/main/DeeperBin"><strong> Download <span style="font-variant: small-caps;">DeeperBin</span> </strong></a><br>
+    </span>
+  </div>
+
+  <div class="logo">
+    <img src="/assets/img/datadownload.svg" alt="avatar" height="30"" width="30"">
+    <span>
+      <a href="https://github.com/DeeperBin/DeeperBin.github.io/blob/main/data/deeperbin-demo-db.7z"><strong>Download Feature Database of <span style="font-variant: small-caps;">DeeperBin</span></strong></a><br>
+    </span>
+  </div>
+
+  <div class="logo">
+    <img src="/assets/img/datadownload.svg" alt="avatar" height="30"" width="30"">
+    <span>
+      <a href="https://github.com/DeeperBin/DeeperBin.github.io/blob/main/data/ground_truth_dataset.xlsx"><strong>Download Ground-truth Dataset</strong></a><br>
+    </span>
+  </div>
+  
+</div>
+
+<div id="d-help-win" class="d-help-win" style="display: none;">
+  <div id="win-title">Help
+    <span id="d-help-colse" clss="close_2" class="close_2">
+      ×
+    </span>
+  </div>
+  <div id="win-content">
+    <center><strong>
+        <font size="4">A Demo of <span style="font-variant: small-caps;">DeeperBin</span> </font>
+      </strong></center>
+    <img src="/assets/img/deeperbin-demo.gif" alt="avatar">
+  </div>
+</div>
