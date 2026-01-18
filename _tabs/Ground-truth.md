@@ -17,7 +17,7 @@ This Ground-truth Dataset provides a comprehensive view of software dependency g
 
 ## 2. JSON Data Schema
 
-The dataset adopts a hierarchical structure, where each entry represents a **Self-Developed Project**. It details the direct usage of **Third-Party Libraries (TPLs)** by the project and recursively demonstrates the transitive dependencies between these TPLs.
+The dataset adopts a hierarchical structure, where each entry represents a **C/C++ Project**. It details the direct usage of **Third-Party Libraries (TPLs)** by the project and recursively demonstrates the transitive dependencies between these TPLs.
 
 ### 2.1 Root Object (Project Level)
 
@@ -83,16 +83,20 @@ Provides ground-truth evidence at the file level.
     "dependency_graph": [
       {
         "source_project": "ability_ability_base",
-        "target_project": "third_party_mesa3d",
+        "target_project": "third_party_bounds_checking_function",
         "relation_type": "direct_usage",
         "file_evidence": [
           {
-            "source": "foundation/ability/ability_base/test/unittest/want/array_wrapper_test.cpp",
-            "target": "third_party/mesa3d/src/gtest/include/gtest/gtest.h"
+            "source": "foundation/ability/ability_base/interfaces/kits/c/cwant/src/want.cpp",
+            "target": "third_party/bounds_checking_function/include/securec.h"
           },
           {
-            "source": "foundation/ability/ability_base/test/unittest/cwant/capi_want_test.cpp",
-            "target": "third_party/mesa3d/src/gtest/include/gtest/gtest.h"
+            "source": "foundation/ability/ability_base/interfaces/kits/native/extractortool/src/extractor.cpp",
+            "target": "third_party/bounds_checking_function/include/securec.h"
+          },
+          {
+            "source": "foundation/ability/ability_base/interfaces/kits/native/extractortool/src/zip_file.cpp",
+            "target": "third_party/bounds_checking_function/include/securec.h"
           }
         ]
       }
