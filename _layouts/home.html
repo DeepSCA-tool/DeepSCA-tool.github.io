@@ -3,29 +3,37 @@ layout: page
 ---
 
 <div class="post-content" style="text-align: justify; font-family: Roboto;">
-  <u>B</u>inary <u>S</u>oftware <u>C</u>omposition <u>A</u>nalysis (<b>BSCA</b>) is a technique for identifying the versions of third-party libraries (TPLs)
-  used in compiled binaries, thereby tracing the dependencies and vulnerabilities of software components without access to
-  their source code. However, existing BSCA techniques struggle with <b>cross-language invoked C/C++ binaries in polyglot projects</b>
-  due to two key challenges: (1) interference from heterogeneous <i>Foreign Function Interface (FFI) bindings</i> that obscure 
-  distinctive TPL features and generate false positives during matching processes, and (2) the inherent complexity of composite
-  binaries (<i>fused binaries</i>), particularly prevalent in polyglot development where multiple TPLs are frequently compiled into 
-  single executable units, resulting in blurred boundaries between libraries and substantially compromising version identification precision.<br>
-
-  &emsp;We propose <b><span style="font-variant: small-caps;">DeeperBin</span>, a BSCA technique that addresses these challenges through a high-quality, 
-  large-scale feature database with four key advantages: </b>
+  &emsp;<u>S</u>oftware <u>C</u>omposition <u>A</u>nalysis (<b>SCA</b>) identifies reused third-party libraries (TPLs) and their dependencies, 
+  forming the basis of Software Bills of Materials (SBOMs) for software supply chain security. Current C/C++ SCA techniques extract code 
+  features and match them against a TPL feature database. However, detection recall is limited by database coverage, and two key challenges 
+  remain:
   <ul style="list-style-type: square; margin-bottom: 0.5em;">
-    <li><b>High scalability</b> that is capable of analyzing 74,647 C/C++ TPL versions.</li>
-    <li><b>Efficient noise filtering</b> to remove FFI bindings and common functions.</li>
-    <li><b>Automated extraction of version string regexes</b> for 31,855 TPL versions.</li>
-    <li><b>Generation of distinctive version features</b> using the <i>Minimum Description Length</i> (MDL) principle.</li>
+    <li><b>Coverage-Precision Trade-off</b>: Feature databases built from a single repository often yield high false negatives, as C/C++ 
+    TPLs are inherently distributed across diverse hosting platforms, each offering partially overlapping yet distinct sets of TPLs.<br>
+    While a multi-repository feature database can improve TPL coverage, it also introduces numerous <i>shared functions</i> (e.g., clone functions 
+    across TPLs), which significantly increase false positives.</li>
+    <li><b>Neglected Dependency Context</b>: Existing SCA techniques primarily focus on detecting reused TPLs but often overlook their 
+    inter-dependencies. However, license compatibility constraints are inherently determined by directed dependency relationships among 
+    TPLs.</li>
   </ul>
 
-  &emsp;Evaluated on 418 cross-language binaries, <span style="font-variant: small-caps;">DeeperBin</span> achieves 81.2% precision and 84.6% recall 
-  for TPL detection, outperforming state-of-the-art techniques by 14.1% and 23.2%, respectively. For version identification, it achieves 
-  70.3% precision, a 12.6% improvement over state-of-the-art techniques. Ablation studies confirm the usefulness of FFI filtering
-  and MDL-based features, boosting precision and recall by 17.1% and 18.8%. <span style="font-variant: small-caps;">DeeperBin</span> also maintains 
-  competitive efficiency, processing binaries in 364.3 seconds while supporting the largest feature database.
+  &emsp;We propose <b><span style="font-variant: small-caps;">DeepSCA</span>, an effective SCA technique for C/C++ projects that enables both 
+  reliable TPL detection and accurate inter-TPL dependency graph recovery.</b>
+  <ul style="list-style-type: square; margin-bottom: 0.5em;">
+    <li>To addresses Challenge 1, <b><span style="font-variant: small-caps;">DeepSCA</span> constructs a feature database with 30,047,290 
+    functions</b> extracted from 33,100 C/C++ TPLs, covering nine mainstream hosting repositories. To reduce false positives from <i>shared 
+    functions</i>, <span style="font-variant: small-caps;">DeepSCA</span> groups TPLs with shared code, and uses uniqueness scores to trace 
+    functions to their origins—ensuring high precision without sacrificing recall.</li>
+    <li>To overcome Challenge 2, <b><span style="font-variant: small-caps;">DeepSCA</span> generates the dependency graph from the detected 
+    TPLs.</b> it resolves filename ambiguity by simulating compiler header search paths and mitigates symbol ambiguity via namespace-aware 
+    resolution, enabling accurate file-level dependency mapping to TPLs.</li>
+  </ul>
 
+  &emsp;Evaluated on a ground-truth dataset of 335 OpenHarmony projects (10,583 TPLs, 64,200 dependencies), <span style="font-variant: small-caps;">DeepSCA</span> 
+  achieves <b>85.6% precision</b> and <b>87.3% recall</b> for TPL detection, outperforming state-of-the-art tools (e.g., 16.8% precision and 
+  22.1% recall improvement over TPLite). Its dependency graphs reach <b>91.8% precision</b>, surpassing Cneps by 11.3%. Moreover, the dependency 
+  graph generated by <span style="font-variant: small-caps;">DeepSCA</span> uncovers hidden combinations of license incompatibility issues in 
+  real-world projects.
 </div>
 <hr>
 <div class="post-content" style="margin-top: 1em;">
