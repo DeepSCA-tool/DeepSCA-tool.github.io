@@ -20,7 +20,7 @@ timezone: Asia/Shanghai
 
 title: DeepSCA # the main title
 
-tagline: An Effective SCA Technique for C/C++ Projects (Source Code) that Enables Both Reliable TPL Detection and Accurate Inter-TPL Dependency Graph Recovery # it will display as the sub-title
+tagline: An Effective SCA Tool for C/C++ Projects (Source Code) that Enables Both Reliable TPL Detection and Accurate Inter-TPL Dependency Graph Recovery # it will display as the sub-title
 
 # description: >- # used by seo meta and the atom feed
 #   A minimal, responsive and feature-rich Jekyll theme for technical writing.
