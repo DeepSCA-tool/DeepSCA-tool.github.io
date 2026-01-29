@@ -3,48 +3,55 @@ icon: fas fa-toolbox
 order: 1
 ---
 
-# DeeperBin
-DeeperBin is a binary software composition analysis (BSCA) tool designed to detect C/C++ third-party libraries (TPLs) and identify their versions in cross-language invoked C/C++ binaries within polyglot projects, such as those from PyPI and Maven.
+# DeepSCA
+DeepSCA is a binary software composition analysis (BSCA) tool designed to detect C/C++ third-party libraries (TPLs) and identify their versions within cross-language invoked C/C++ binaries in polyglot projects, such as those found in PyPI and Maven repositories.
 
 ## Supported Platforms
-- Windows 11
-- Python 3.7 or later 
+- Python 3.9 or later
 - MongoDB 5.1 or later
 
 ## Quick Start
-1. Download **DeeperBin**
-   
-    Download all compressed parts listed on the [**DeeperBin**](https://github.com/DeeperBin/DeeperBin.github.io/tree/main/DeeperBin) page, and extract them to obtain **deeperbin.exe**.
-   
-    |deeperbin.7z.001|
-    | :--: |
-    |deeperbin.7z.002|
-    |deeperbin.7z.003|
-    |deeperbin.7z.004|
-    |deeperbin.7z.005|
-    |deeperbin.7z.006|
 
-2. Install **DeeperBin**
+### 1. Download DeepSCA
+Download the latest **DeepSCA** compressed package and extract it:
+* [**DeepSCA v2.0**](https://github.com/DeepSCA-tool/DeepSCA-tool.github.io/blob/main/DeepSCA/deepsca-2.0.zip)
 
-    Copy **deeperbin.exe** to any directory on your system.
+### 2. Configure Environment & Database
+Before running DeepSCA, you need to set up the MongoDB database and update the tool's configuration file (`config.yml`).
 
-3. Configure MongoDB Database
+1.  **Install MongoDB**: Ensure MongoDB is installed and running on your system (Version 5.1+ is recommended).
+2.  **Import Data**:
+    * Download the feature database package.
+    * Import **`deepsca-feature-db`** into your local MongoDB instance.
+3.  **Configure `config.yml`**:
+    * Locate the `config.yml` file in the extracted DeepSCA directory.
+    * Edit the file to include your MongoDB connection details (IP, Port, Database Name) to ensure DeepSCA can access the feature data.
 
-    - Install MongoDB on your system.
-    - Download the [**Feature Database**](https://github.com/DeeperBin/DeeperBin.github.io/blob/main/data/deeperbin-demo-db.7z) of DeeperBin.
-  
-      `DeeperBin.Feature_Group_Demo.json`: the collection of binary features.
-      
-      `DeeperBin.PackageMetadata_Demo.json`: the collection of TPL metadata for corresponding binaries.
-      
-    - Import both collections into your local MongoDB instance (ip: "localhost", port: 27017).
+### 3. Run DeepSCA
+**DeepSCA** is a Python-based tool with `detector.py` serving as the main entry point.
 
-4. Run **DeeperBin**
+1.  Open a Command Line or Terminal window.
+2.  Navigate to the directory containing `detector.py`.
+3.  Run the analysis using the following command structure:
 
-   Open a command line window in the directory where **deeperbin.exe** is located and run:
-
-    ```
-      deeperbin.exe input_file_path output_result_path
+    ```bash
+    python detector.py -i <source_directory> -o <result_directory>
     ```
 
-    Replace `input_file_path` with the path to the binary file to be analyzed, and `output_result_path` with the desired output directory.
+    **Parameters:**
+    * `-i` or `--source_dir`: Path to the directory containing the project binaries/source code you wish to analyze.
+    * `-o` or `--result_dir`: Path to the directory where the output results (`.jl` files) will be saved.
+
+    **Example:**
+    ```bash
+    python detector.py -i ./data/targets -o ./results
+    ```
+
+    **Optional Arguments:**
+    You can also adjust the number of worker processes or detection thresholds:
+    ```bash
+    # Run with 8 worker processes
+    python detector.py -i ./data/targets -o ./results -w 8
+    ```
+    
+    *(For a full list of options, run `python detector.py --help`)*

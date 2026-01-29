@@ -6,8 +6,6 @@ order: 2
 
 # Feature Database (feature-db)
 
-This Dataset serves as a core feature repository for Open Source Software (OSS) analysis. The core data is provided in **JSON format** (compatible with MongoDB Extended JSON), capturing software signatures, function-level features, and modification statistics. It provides standardized data support for Software Composition Analysis (SCA) and code similarity research.
-
 ## 1. Dataset Download
 
 * **Feature Database (JSON)**:
