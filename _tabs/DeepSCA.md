@@ -4,7 +4,7 @@ order: 1
 ---
 
 # DeepSCA
-DeepSCA is a binary software composition analysis (BSCA) tool designed to detect C/C++ third-party libraries (TPLs) and identify their versions within cross-language invoked C/C++ binaries in polyglot projects, such as those found in PyPI and Maven repositories.
+An Effective SCA Tool for C/C++ Projects (Source Code) that Enables Both Reliable TPL Detection and Accurate Inter-TPL Dependency Graph Recovery.
 
 ## Supported Platforms
 - Python 3.9 or later
