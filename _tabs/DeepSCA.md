@@ -21,7 +21,7 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
 
 1.  **Install MongoDB**: Ensure MongoDB is installed and running on your system (Version 5.1+ is recommended).
 2.  **Import Data**:
-    * Download the feature database package.
+    * Download the [**Feature Database**]() of DeepSCA.
     * Import **`deepsca-feature-db`** into your local MongoDB instance.
 3.  **Configure `config.yml`**:
     * Locate the `config.yml` file in the extracted DeepSCA directory.
@@ -56,6 +56,7 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     
 
     *(For a full list of options, run `python detector.py --help`)*
+
 
 
 
