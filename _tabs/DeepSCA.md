@@ -14,7 +14,7 @@ DeepSCA is a software composition analysis (SCA) tool for C/C++ source-code proj
 
 ### 1. Download DeepSCA
 Download the latest **DeepSCA** compressed package and extract it:
-* [**DeepSCA v2.0**](https://github.com/DeepSCA-tool/DeepSCA-tool.github.io/blob/main/DeepSCA/deepsca-2.0.zip)
+[**DeepSCA v2.0**](https://github.com/DeepSCA-tool/DeepSCA-tool.github.io/blob/main/DeepSCA/deepsca-2.0.zip)
 
 ### 2. Configure Environment & Database
 Before running DeepSCA, you need to set up the MongoDB database and update the tool's configuration file (`config.yml`).
@@ -39,7 +39,7 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     ```
 
     **Parameters:**
-    * `-i` or `--source_dir`: Path to the directory containing the project binaries/source code you wish to analyze.
+    * `-i` or `--source_dir`: Path to the directory containing the project source code you wish to analyze.
     * `-o` or `--result_dir`: Path to the directory where the output results (`.jl` files) will be saved.
 
     **Example:**
@@ -56,5 +56,6 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     
 
     *(For a full list of options, run `python detector.py --help`)*
+
 
 
