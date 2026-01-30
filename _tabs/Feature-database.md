@@ -12,7 +12,7 @@ order: 2
 
 The database adopts a document-based structure, where each document represents the function-level feature vector of a C/C++ third-party library (TPL), including function metadata, file catalogs, and hosting repository information. The detailed field definitions are as follows.
 
-### 2.1 Function-level Feature Vector
+### Function-level Feature Vector
 
 | Field Name | Data Type | Description |
 | :--- | :--- | :--- |
@@ -26,7 +26,7 @@ The database adopts a document-based structure, where each document represents t
 | **`cluster_label`** | Integer | The label identifier for the project cluster (intermediate data). |
 | **`family_label`** | String | The label identifier for the TPL group. |
 
-### 2.2 An Example of the Function-level Feature Vector
+### An Example of the Function-level Feature Vector
 
 ```json
 [
