@@ -4,11 +4,11 @@ icon: fas fa-info-circle
 order: 3
 ---
 
+## 1. Download Ground-truth Dataset 
+
 We constructed a new ground-truth dataset because existing public datasets lack dependency graph annotations, and the dataset from recent dependency studies is not publicly available.
 
-## 1. Dataset Download
-
-[**Download Ground-truth Dataset (JSON)**](https://github.com/DeepSCA-tool/DeepSCA-tool.github.io/blob/main/data/ground_truth_dataset.zip)
+[**Ground-truth Dataset (JSON)**](https://github.com/DeepSCA-tool/DeepSCA-tool.github.io/blob/main/data/ground_truth_dataset.zip)
     
 ## 2. JSON Data Schema
 
@@ -96,4 +96,5 @@ Provides ground-truth evidence at the file level.
 ]
 
 ```
+
 
