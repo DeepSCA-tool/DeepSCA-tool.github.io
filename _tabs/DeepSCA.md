@@ -3,7 +3,6 @@ icon: fas fa-toolbox
 order: 1
 ---
 
-# DeepSCA
 DeepSCA is a software composition analysis (SCA) tool for C/C++ source-code projects, designed to detect reused C/C++ third-party libraries (TPLs) and recovery the inter-TPL dependency graph.
 
 ## Supported Platforms
@@ -56,3 +55,4 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     
 
     *(For a full list of options, run `python detector.py --help`)*
+
