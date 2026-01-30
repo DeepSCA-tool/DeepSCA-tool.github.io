@@ -4,7 +4,7 @@ order: 1
 ---
 
 # DeepSCA
-An Effective SCA Tool for C/C++ Projects (Source Code) that Enables Both Reliable TPL Detection and Accurate Inter-TPL Dependency Graph Recovery.
+DeepSCA is a software composition analysis (SCA) tool for C/C++ source-code projects, designed to detect reused C/C++ third-party libraries (TPLs) and recovery the inter-TPL dependency graph.
 
 ## Supported Platforms
 - Python 3.9 or later
@@ -54,4 +54,5 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     python detector.py -i ./data/targets -o ./results -w 8
     ```
     
+
     *(For a full list of options, run `python detector.py --help`)*
