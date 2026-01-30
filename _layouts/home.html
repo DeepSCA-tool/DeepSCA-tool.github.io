@@ -3,10 +3,10 @@ layout: page
 ---
 
 <div class="post-content" style="text-align: justify; font-family: Roboto;">
-  &emsp;<u>S</u>oftware <u>C</u>omposition <u>A</u>nalysis (<b>SCA</b>) identifies reused third-party libraries (TPLs) and their dependencies, 
-  forming the basis of Software Bills of Materials (SBOMs) for software supply chain security. Current C/C++ SCA techniques extract code 
-  features and match them against a TPL feature database. However, detection recall is limited by database coverage, and two key challenges 
-  remain:
+  <u>S</u>oftware <u>C</u>omposition <u>A</u>nalysis (<b>SCA</b>) identifies reused third-party libraries (TPLs) and their dependencies, 
+  forming the basis of Software Bills of Materials (SBOMs) for securing software supply chain. Current C/C++ SCA techniques extract code 
+  features and match them against a TPL feature database. However, detection recall is limited by feature database coverage, and two key 
+  challenges remain:
   <ul style="list-style-type: square; margin-bottom: 0.5em;">
     <li><b>Coverage-Precision Trade-off</b>: Feature databases built from a single repository often yield high false negatives, as C/C++ 
     TPLs are inherently distributed across diverse hosting platforms, each offering partially overlapping yet distinct sets of TPLs.
@@ -73,3 +73,4 @@ layout: page
     <img src="/assets/img/deepsca-demo.gif" alt="avatar">
   </div>
 </div>
+
