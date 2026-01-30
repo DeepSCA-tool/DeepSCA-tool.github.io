@@ -28,7 +28,7 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     * Edit the file to include your MongoDB connection details (IP, Port, Database Name) to ensure DeepSCA can access the feature data.
 
 ### 3. Run DeepSCA
-**DeepSCA** is a Python-based tool with `detector.py` serving as the main entry point.
+DeepSCA is a Python-based tool with `detector.py` serving as the main entry point.
 
 1.  Open a Command Line or Terminal window.
 2.  Navigate to the directory containing `detector.py`.
@@ -56,6 +56,7 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     
 
     *(For a full list of options, run `python detector.py --help`)*
+
 
 
 
