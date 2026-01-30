@@ -6,6 +6,7 @@ order: 1
 DeepSCA is a software composition analysis (SCA) tool for C/C++ source-code projects, designed to detect reused C/C++ third-party libraries (TPLs) and recovery the inter-TPL dependency graph.
 
 ## Supported Platforms
+- Windows 11
 - Python 3.9 or later
 - MongoDB 5.1 or later
 
@@ -55,4 +56,5 @@ Before running DeepSCA, you need to set up the MongoDB database and update the t
     
 
     *(For a full list of options, run `python detector.py --help`)*
+
 
