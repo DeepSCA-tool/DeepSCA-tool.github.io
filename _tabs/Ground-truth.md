@@ -12,26 +12,24 @@ We constructed a new ground-truth dataset because existing public datasets lack 
     
 ## 2. JSON Data Schema
 
-The dataset adopts a hierarchical structure, where each entry represents a **C/C++ Project**. It details the direct usage of **C/C++ Third-Party Libraries (TPLs)** by the project and recursively demonstrates the transitive dependencies between these TPLs.
+The dataset adopts a hierarchical structure, where each item represents a **C/C++ Project**. It details all reused **C/C++ TPLs** and their **inter-TPL dependency graph**.
 
-### Project Object
+### C/C++ Project Object
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
 | **`self_developed_project`** | String | The name of the C/C++ project. |
-| **`third_party_libraries`** | List | A list of all C/C++ third-party libraries reused in the C/C++ project (including both direct and indirect reused TPLs). |
-| **`dependency_graph`** | List | A list of edges defining the topology of the dependency graph. |
+| **`third_party_libraries`** | List | A list of all C/C++ TPLs reused in the C/C++ project (including both direct and transitive reused TPLs). |
+| **`dependency_graph`** | List | A list of edges(dependency relations) of the dependency graph. |
 
-### Third-Party Library List
+### Reused C/C++ TPL List
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
 | **`name`** | String | The name of the C/C++ TPLs (e.g., `openssl`, `musl`). |
 | **`dependency_type`** | String | **`Direct`**: C/C++ TPLs explicitly imported or included by the C/C++ project.<br>**`Transitive`**: C/C++ TPLs introduced transitively via other TPLs. |
 
-### 2.3 TPL-level Dependency (Inter-TPL Dependency Graph)
-
-Defines the specific directional relationships ("edges") in the dependency graph.
+### TPL-level Dependency List (Inter-TPL Dependency Graph)
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
@@ -40,7 +38,7 @@ Defines the specific directional relationships ("edges") in the dependency graph
 | **`relation_type`** | String | **`direct_usage`**: Project/TPL → TPL (Direct Dependency). <br> **`transitive_dependency`**: TPL → TPL (Transitive Dependency). |
 | **`file_evidence`** | List | A list of specific file pairs proving the existence of this dependency (file-level dependency). |
 
-### 2.4 File-level Dependnecy
+### File-level Dependnecy List
 
 Provides ground-truth evidence at the file level.
 
@@ -49,7 +47,7 @@ Provides ground-truth evidence at the file level.
 | **`source`** | String | The path of the source file initiating the import/include. |
 | **`target`** | String | The path of the target file being referenced. |
 
-### 2.5 An Example of the C/C++ Project Object
+### An Example of the C/C++ Project Object
 
 ```json
 [
@@ -98,3 +96,4 @@ Provides ground-truth evidence at the file level.
 ]
 
 ```
+
